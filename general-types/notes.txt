@@ -1,0 +1,9 @@
+PHP FUNDAMENTALS NOTES
+PHP has a Case Sensitivity in - Variables
+
+PHP Classes doesn’t have Case Sensitivity
+
+PHP Functions are not Case Sensitive
+
+
+Defining constants variable are GLOBAL.
