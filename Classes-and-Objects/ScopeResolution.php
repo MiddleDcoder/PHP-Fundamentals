@@ -58,6 +58,8 @@ class Author extends Person{
     }
 }
 
-echo Author::$centuryPopular; //accessing a static property #note including the $ sign not like to object operator that don't need the dollar sign
+// $authorObj = new Author(); // no need to create instance of class to declare an object when accessing static property/method
+
+echo  Author::$centuryPopular;  #$authorObj::$centuryPopular; //accessing a static property not including the $ sign not like to object operator that need the dollar sign
 echo PHP_EOL;
 echo Author::getCenturyAuthorWasPopular(); //calling a static method inside of a class
