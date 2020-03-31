@@ -39,7 +39,7 @@ if($_POST['email'] != ""){ //after having a count statement above no need to use
                     <label>Favorite Author:</label>
                     <select name="author">
                     <?php while($row = $resultObj->fetch_assoc()): ?>
-                        <option value="<?=$row['id']?>"><?=$row['first_name']?> <?=$row['last_name']?></option>
+                        <option value="<?=$row['first_name']?> <?=$row['last_name']?>"><?=$row['first_name']?> <?=$row['last_name']?></option>
                     <?php endwhile; ?>
                     </select>
                 </div>		
