@@ -20,6 +20,41 @@ else{
     header('Location: index.php');
 }
 
+$author = '';
+$comments = '';
+$name = '';
+$email = '';
+$newsletter = '';
+
+if(isset($postedData['submit'])){
+    if(!isset($postedData['author']) || $postedData['author'] === ''){
+        $author = '';
+    }else {
+        $author = $postedData['author']; 
+    };
+    if(!isset($postedData['comments']) || $postedData['comments'] === ''){
+        $comments = '';
+    }else {
+        $comments = $postedData['comments']; 
+    };
+    if(!isset($postedData['name']) || $postedData['name'] === ''){
+        $name = '';
+    }else {
+        $name = $postedData['name']; 
+    };
+    if(!isset($postedData['email']) || $postedData['email'] === ''){
+        $email = '';
+    }else {
+        $email = $postedData['email']; 
+    };
+    if(!isset($postedData['newsletter']) || $postedData['newsletter'] === ''){
+        $newsletter = '';
+    }else {
+        $newsletter = $postedData['newsletter']; 
+    };
+
+}
+
 ?> 
 
 <!DOCTYPE html>
@@ -38,27 +73,36 @@ else{
         <div id="Body">
             <div>
                 <label>Favorite Author:</label> 
-                <span><?=$postedData['author']?>&nbsp;</span>
+                <span><?=$author?>&nbsp;</span>
             </div>		
             <div>
                 <label>Favorite Century:</label>
-                <span><?php echo implode(', ', $postedData['century']);?>&nbsp;</span>
+                <span><?php
+   
+               if(isset($postedData['submit'])){                
+                 if(!empty($postedData['century'])){ //the empty() function is the carrier if there is no empty string will throw the posted data empty string
+                        foreach($postedData['century'] as $value){
+                            echo $value. ' '; //this is the better pattern than implode if you don't want to have error when there is no value
+                        }
+                    } 
+                }                         
+                // echo implode(', ', $postedData['century']); //the problem of this implode is will throw an error if no value ?>&nbsp;</span>
             </div>
             <div>
                 <label>Comments:</label>
-                <span><?=$postedData['comments']?>&nbsp;</span>
+                <span><?=$comments?>&nbsp;</span>
             </div>
             <div>
                 <label>Name:</label>
-                <span><?=$postedData['name']?>&nbsp;</span>
+                <span><?=$name?>&nbsp;</span>
             </div>
             <div>
                 <label>E-mail Address:</label>
-                <span><?=$postedData['email']?>&nbsp;</span>
+                <span><?=$email?>&nbsp;</span>
             </div>
             <div>
                 <label>Receive Newsletter:</label>
-                <span><?=$postedData['newsletter']?>&nbsp;</span>
+                <span><?=$newsletter?>&nbsp;</span>
             </div>
         </div>
 	</body>
