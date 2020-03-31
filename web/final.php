@@ -1,11 +1,16 @@
 <?php
 
+include 'assets/include.php';
+
 echo "<pre>";
-print_r($_POST);
+print_r($_SESSION);
 echo "</pre>";
 
-echo $_POST['author'];
-?>
+//echo $_POST['author'];
+
+$postedData = $_SESSION['formPostData'];
+
+?> 
 
 <!DOCTYPE html>
 <html>
