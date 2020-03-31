@@ -2,13 +2,23 @@
 
 include 'assets/include.php';
 
-echo "<pre>";
-print_r($_SESSION);
-echo "</pre>";
+// echo "<pre>";
+// print_r($_SESSION);
+// echo "</pre>";
 
 //echo $_POST['author'];
 
-$postedData = $_SESSION['formPostData'];
+if(isset($_SESSION['formPostData'])){
+    $postedData = $_SESSION['formPostData'];
+
+    //adding the code below will destroy the session after posting the form data through session
+   // session_destroy(); //destroy entire session
+   unset($_SESSION['formPostData']);
+    //unset() other way to destroy data only works if the variable has ben isset or set
+}
+else{   
+    header('Location: index.php');
+}
 
 ?> 
 
