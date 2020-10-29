@@ -6,6 +6,6 @@ $replaced = str_replace("be", "know", $quote);
 echo $replaced;
 echo "\n";
 
-$replaced = str_replace("be", "know", $count);
+$replaced = str_replace("be", "know", $quote, $count);
 
 echo $count;  //the 4th parameter will count how many times the word being replaced
